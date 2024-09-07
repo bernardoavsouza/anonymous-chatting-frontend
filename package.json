@@ -7,8 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "prepare": "husky"
+    "test": "jest --bail",
+    "prepare": "husky",
+    "precommit": "lint-staged && pnpm run test --passWithNoTests"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "next": "14.2.8",
@@ -16,6 +21,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
@@ -26,8 +33,10 @@
     "eslint-config-next": "14.2.8",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.5",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.10",
     "postcss": "^8.4.45",
     "prettier": "3.3.3",
     "prettier-eslint": "^16.3.0",
