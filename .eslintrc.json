@@ -1,11 +1,23 @@
 {
-    "extends": [
-        "next/core-web-vitals",
-        "next/typescript",
-        "plugin:prettier/recommended"
-    ],
-    "plugins": ["prettier"],
-    "rules": {
-        "prettier/prettier": "error"
-    }
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:prettier/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "prettier"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }
