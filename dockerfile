@@ -1,4 +1,4 @@
-FROM node:20.11.1
+FROM node:20.11.1-slim
 
 WORKDIR /app
 
@@ -6,7 +6,6 @@ COPY . .
 
 RUN npm install -g pnpm@9.9.0
 
-RUN pnpm install
-
 EXPOSE 3000
-CMD ["pnpm", "run", "dev"]
+ENTRYPOINT [ "pnpm", "run" ]
+CMD ["dev"]
