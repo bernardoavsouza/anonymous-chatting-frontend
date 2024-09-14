@@ -1,4 +1,4 @@
 import ShouldRender from './should-render';
+import Text from './text';
 
-// eslint-disable-next-line import/prefer-default-export
-export { ShouldRender };
+export { ShouldRender, Text };
