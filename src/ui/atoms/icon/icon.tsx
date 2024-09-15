@@ -12,11 +12,7 @@ const Icon: React.FC<IconProps> = ({ name, className, size = 'base' }) => {
   const isBase = size === 'base';
   const isMd = size === 'md';
 
-  const finalClassName = clsx(
-    isBase && 'h-4 w-4',
-    isMd && 'h-6 w-6',
-    className,
-  );
+  const finalClassName = clsx(isBase && 'size-4', isMd && 'size-6', className);
   const HeroIcon = HeroIcons[name];
 
   return <HeroIcon className={finalClassName} />;
