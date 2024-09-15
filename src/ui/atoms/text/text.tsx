@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { TTextSize, TTextTag, TTextWeight } from './types/text.types';
+import { TTextSize, TTextTag, TTextWeight } from '../types/text.types';
 
 interface TextProps {
   as?: TTextTag;

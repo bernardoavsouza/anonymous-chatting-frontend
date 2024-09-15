@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import * as HeroIcons from '@heroicons/react/24/outline';
-import { TIcon, TIconSize } from './types/icon.types';
+import { TIcon, TIconSize } from '../types/icon.types';
 
 interface IconProps {
   name: TIcon;
