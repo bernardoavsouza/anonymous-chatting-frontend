@@ -1,12 +1,16 @@
 import clsx from 'clsx';
-import { TTextSize, TTextTag, TTextWeight } from '../types/text.types';
+import {
+  TTextLineHeight,
+  TTextSize,
+  TTextTag,
+  TTextWeight,
+} from '../types/text.types';
 
 interface TextProps {
   as?: TTextTag;
   size?: TTextSize;
-  lineHeight?: TTextSize;
+  lineHeight?: TTextLineHeight;
   weight?: TTextWeight;
-  bold?: boolean;
   italic?: boolean;
   center?: boolean;
   children: React.ReactNode;
@@ -17,7 +21,7 @@ const Text: React.FC<TextProps> = ({
   as: As = 'p',
   size,
   lineHeight,
-  weight = 'normal',
+  weight,
   italic = false,
   center = false,
   children,
@@ -47,8 +51,27 @@ const Text: React.FC<TextProps> = ({
     isXs && 'text-xs',
   );
 
-  const lineHeightClass = clsx(lineHeight && `leading-${lineHeight}`);
-  const weightClass = clsx(weight && `font-${weight}`);
+  const lineHeightClass = clsx(
+    lineHeight === 'none' && 'leading-none',
+    lineHeight === 'tight' && 'leading-tight',
+    lineHeight === 'snug' && 'leading-snug',
+    lineHeight === 'normal' && 'leading-normal',
+    lineHeight === 'relaxed' && 'leading-relaxed',
+    lineHeight === 'loose' && 'leading-loose',
+  );
+
+  const weightClass = clsx(
+    weight === 'thin' && 'font-thin',
+    weight === 'extralight' && 'font-extralight',
+    weight === 'light' && 'font-light',
+    weight === 'normal' && 'font-normal',
+    weight === 'medium' && 'font-medium',
+    weight === 'semibold' && 'font-semibold',
+    weight === 'bold' && 'font-bold',
+    weight === 'extrabold' && 'font-extrabold',
+    weight === 'black' && 'font-black',
+  );
+
   const italicClass = clsx(italic && 'italic');
   const textPositionClass = clsx(center && 'text-center');
 
