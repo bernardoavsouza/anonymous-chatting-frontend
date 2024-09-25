@@ -1,6 +1,4 @@
-import ShouldRender from './should-render/should-render';
-import Text from './text/text';
-import Icon from './icon/icon';
-import TextInput from './input/text-input/text-input';
-
-export { ShouldRender, Text, Icon, TextInput };
+export { default as ShouldRender } from './should-render/should-render';
+export { default as Text } from './text/text';
+export { default as Icon } from './icon/icon';
+export { default as TextInput } from './input/text-input/text-input';
