@@ -18,7 +18,12 @@ const TextInput: React.FC<TextInputProps> = ({
         type="text"
         placeholder={placeholder}
         label={label}
-        inputClassName={clsx('px-1', 'rounded', 'text-slate-900')}
+        inputClassName={clsx(
+          'px-1',
+          'rounded',
+          'text-slate-900 bg-transparent',
+          'outline-none',
+        )}
       />
     </div>
   );
