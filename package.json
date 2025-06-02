@@ -1,0 +1,59 @@
+{
+  "name": "anonymous-chatting-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --bail",
+    "prepare": "husky",
+    "precommit": "lint-staged && pnpm run test --passWithNoTests"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "dependencies": {
+    "next": "15.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/eslintrc": "^3",
+    "@eslint/js": "^9.28.0",
+    "@next/eslint-plugin-next": "^15.3.3",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "30.0.0-beta.3",
+    "lint-staged": "^16.1.0",
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "tailwindcss": "^4",
+    "ts-jest": "^29.3.4",
+    "typescript": "^5",
+    "typescript-eslint": "^8.33.0"
+  },
+  "engines": {
+    "npm": "please-use-pnpm",
+    "pnpm": "10.11.0",
+    "node": "22.16.0"
+  }
+}
