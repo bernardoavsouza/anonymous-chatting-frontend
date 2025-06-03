@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --bail",
+    "test:watch": "jest --watchAll",
     "prepare": "husky",
     "precommit": "lint-staged && pnpm run test --passWithNoTests"
   },
