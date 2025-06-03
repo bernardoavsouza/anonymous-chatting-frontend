@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Text } from '.';
+import { Text } from '..';
 
-describe('Text component unit tests', () => {
+describe('Text component render tests', () => {
   beforeEach(() => {
     render(<Text>Hello</Text>);
   });
@@ -11,7 +11,7 @@ describe('Text component unit tests', () => {
     expect(element).toBeInTheDocument();
   });
 
-  it('should be a p tag', () => {
+  it('should be a paragraph by default', () => {
     const element = screen.getByRole('paragraph');
     expect(element).toBeInTheDocument();
   });
