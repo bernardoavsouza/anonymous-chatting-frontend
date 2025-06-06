@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '..';
 
-describe('Button component event tests', () => {
+describe('Button component events tests', () => {
   let onClick: jest.Mock;
 
   beforeEach(() => {
