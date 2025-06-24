@@ -1,17 +1,19 @@
+import { Text } from '../../atoms/text';
+
 type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
-  children: React.ReactNode;
+  text?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled = false,
-  children,
+  text,
 }) => {
   return (
     <button disabled={disabled} onClick={onClick}>
-      {children}
+      <Text>{text}</Text>
     </button>
   );
 };
