@@ -4,7 +4,8 @@ import { screen } from '@testing-library/react';
 
 describe('Input component content tests', () => {
   beforeEach(() => {
-    render(<Input value="dummy value" />);
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    render(<Input value="dummy value" onChange={() => {}} />);
   });
 
   it('should hold its value', () => {
