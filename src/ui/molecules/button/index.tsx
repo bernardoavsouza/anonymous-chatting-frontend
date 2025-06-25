@@ -1,19 +1,28 @@
 import { Text } from '../../atoms/text';
+import type { LucideIcon } from 'lucide-react';
 
 type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
-  text?: string;
+  children?: React.ReactNode;
+  leftIcon?: LucideIcon;
+  rightIcon?: LucideIcon;
+  ref?: React.Ref<HTMLButtonElement>;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled = false,
-  text,
+  children,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
+  ref,
 }) => {
   return (
-    <button disabled={disabled} onClick={onClick}>
-      <Text>{text}</Text>
+    <button ref={ref} disabled={disabled} onClick={onClick}>
+      {LeftIcon && <LeftIcon role="img" />}
+      {children && <Text>{children}</Text>}
+      {RightIcon && <RightIcon role="img" />}
     </button>
   );
 };
