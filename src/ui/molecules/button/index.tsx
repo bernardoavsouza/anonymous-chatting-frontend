@@ -8,6 +8,7 @@ type ButtonProps = {
   leftIcon?: LucideIcon;
   rightIcon?: LucideIcon;
   ref?: React.Ref<HTMLButtonElement>;
+  dataTestId?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -16,10 +17,15 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   leftIcon: LeftIcon,
   rightIcon: RightIcon,
+  dataTestId,
   ref,
 }) => {
   return (
-    <button ref={ref} disabled={disabled} onClick={onClick}>
+    <button
+      ref={ref}
+      disabled={disabled}
+      onClick={onClick}
+      data-testid={dataTestId}>
       {LeftIcon && <LeftIcon role="img" />}
       {children && <Text>{children}</Text>}
       {RightIcon && <RightIcon role="img" />}
