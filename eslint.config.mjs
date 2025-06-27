@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
 import { defineConfig } from 'eslint/config';
+import jest from 'eslint-plugin-jest';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,7 +25,7 @@ const eslintConfig = defineConfig([
     'prettier',
   ),
   {
-    plugins: { prettier },
+    plugins: { prettier, jest },
     languageOptions: {
       ecmaVersion: 5,
       sourceType: 'script',
@@ -51,6 +52,7 @@ const eslintConfig = defineConfig([
         1,
         { ignoreFilesWithoutCode: true, extensions: ['.tsx'] },
       ],
+      'jest/no-disabled-tests': 'error',
     },
     ignores: ['eslint.config.mjs', 'postcss.config.mjs', 'jest.config.js'],
   },
