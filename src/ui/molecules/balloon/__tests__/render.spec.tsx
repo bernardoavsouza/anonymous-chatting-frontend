@@ -1,9 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import { Balloon } from '..';
+import { Message } from '@/features/chat/types/message';
 
 describe('Balloon component render tests', () => {
+  const message: Message = {
+    content: 'dummy content',
+    direction: 'incoming',
+    timestamp: new Date(2025, 1, 2, 3, 4, 5),
+  };
+
   beforeEach(() => {
-    render(<Balloon content="dummy content" timestamp={new Date()} />);
+    render(<Balloon message={message} />);
   });
 
   it('should render the content', () => {
@@ -12,7 +19,7 @@ describe('Balloon component render tests', () => {
   });
 
   it('should render timestamp', () => {
-    const element = screen.getByRole('time');
+    const element = screen.getByText('03:04');
     expect(element).toBeInTheDocument();
   });
 });

@@ -10,4 +10,14 @@ describe('ChatContainer component render tests', () => {
     const element = screen.getByTestId('send-message-button');
     expect(element).toBeInTheDocument();
   });
+
+  it('should render an input to type message', () => {
+    const element = screen.getByTestId('message-input');
+    expect(element).toBeInTheDocument();
+  });
+
+  it('should render no messages by default', () => {
+    const element = screen.queryByTestId('message-balloon');
+    expect(element).not.toBeInTheDocument();
+  });
 });

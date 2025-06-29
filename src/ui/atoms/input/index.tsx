@@ -2,11 +2,9 @@ import { Ref } from 'react';
 
 type InputProps = {
   ref?: Ref<HTMLInputElement>;
-  placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string;
-};
+  dataTestId?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: React.FC<InputProps> = ({ ref, ...props }) => {
-  return <input ref={ref} {...props} />;
+export const Input: React.FC<InputProps> = ({ ref, dataTestId, ...props }) => {
+  return <input ref={ref} {...props} data-testid={dataTestId} />;
 };
