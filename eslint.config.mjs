@@ -69,6 +69,12 @@ const eslintConfig = defineConfig([
           ignoreRestSiblings: false,
         },
       ],
+      '@typescript-eslint/no-empty-function': [
+        'error',
+        {
+          allow: ['arrowFunctions'],
+        },
+      ],
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

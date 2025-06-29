@@ -1,19 +1,15 @@
+'use client';
+
 import { Input } from '@/ui/atoms/input';
 import { Button } from '@/ui/molecules/button';
 import type { FormEvent } from 'react';
 import { useState } from 'react';
 import type { Message } from '../../types/message';
+import { useConversation } from '../../hooks/use-conversation';
 
-type UserMessageFormProps = {
-  messages: Message[];
-  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
-};
-
-export const UserMessageForm: React.FC<UserMessageFormProps> = ({
-  messages,
-  setMessages,
-}) => {
+export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
+  const { messages, setMessages } = useConversation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

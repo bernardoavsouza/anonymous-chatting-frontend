@@ -1,11 +1,11 @@
-import type { Message } from '../../types/message';
+'use client';
+
+import { useConversation } from '../../hooks/use-conversation';
 import { Balloon } from '@/ui/molecules/balloon';
 
-type MessageListingProps = {
-  messages: Message[];
-};
+export const MessageListing: React.FC = () => {
+  const { messages } = useConversation();
 
-export const MessageListing: React.FC<MessageListingProps> = ({ messages }) => {
   return (
     <>
       {messages.map((message, index) => (
