@@ -53,6 +53,13 @@ const eslintConfig = defineConfig([
         { ignoreFilesWithoutCode: true, extensions: ['.tsx'] },
       ],
       'jest/no-disabled-tests': 'error',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          fixStyle: 'separate-type-imports',
+        },
+      ],
     },
     ignores: ['eslint.config.mjs', 'postcss.config.mjs', 'jest.config.js'],
   },

@@ -1,4 +1,4 @@
-import { Ref } from 'react';
+import type { Ref } from 'react';
 
 type InputProps = {
   ref?: Ref<HTMLInputElement>;

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Balloon } from '..';
-import { Message } from '@/features/chat/types/message';
+import type { Message } from '@/features/chat/types/message';
 
 describe('Balloon component render tests', () => {
   const message: Message = {

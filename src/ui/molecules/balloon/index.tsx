@@ -1,4 +1,4 @@
-import { Message } from '@/features/chat/types/message';
+import type { Message } from '@/features/chat/types/message';
 import { Text } from '@/ui/atoms/text';
 
 type BalloonProps = {
