@@ -5,6 +5,7 @@ import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
 import { defineConfig } from 'eslint/config';
 import jest from 'eslint-plugin-jest';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -25,7 +26,7 @@ const eslintConfig = defineConfig([
     'prettier',
   ),
   {
-    plugins: { prettier, jest },
+    plugins: { prettier, jest, 'unused-imports': unusedImports },
     languageOptions: {
       ecmaVersion: 5,
       sourceType: 'script',
@@ -58,6 +59,24 @@ const eslintConfig = defineConfig([
         {
           prefer: 'type-imports',
           fixStyle: 'separate-type-imports',
+        },
+      ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          vars: 'all',
+          args: 'after-used',
+          ignoreRestSiblings: false,
+        },
+      ],
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
         },
       ],
     },
