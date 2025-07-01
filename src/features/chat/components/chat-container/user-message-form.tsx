@@ -28,6 +28,7 @@ export const UserMessageForm: React.FC = () => {
         dataTestId="message-input"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Mensagem"
       />
       <Button type="submit" dataTestId="send-message-button" />
     </form>
