@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { Ref } from 'react';
 
 type InputProps = {
@@ -11,7 +12,11 @@ export const Input: React.FC<InputProps> = ({ ref, dataTestId, ...props }) => {
       ref={ref}
       {...props}
       data-testid={dataTestId}
-      className="bg-accent"
+      className={clsx(
+        'rounded-2xl px-4 py-1',
+        'bg-secondary outline-0',
+        'placeholder:text-secondary-foreground-muted placeholder:text-xs',
+      )}
     />
   );
 };
