@@ -3,7 +3,7 @@ import { Balloon } from '..';
 import type { Message } from '@/features/chat/types/message';
 
 describe('Balloon component style tests', () => {
-  it("should align right if it's an incoming message", () => {
+  it("should align left if it's an incoming message", () => {
     const message: Message = {
       content: 'dummy content',
       direction: 'incoming',
@@ -13,10 +13,10 @@ describe('Balloon component style tests', () => {
     render(<Balloon message={message} />);
 
     const element = screen.getByText(/dummy content/i).parentElement;
-    expect(element).toHaveClass('self-end');
+    expect(element).toHaveClass('self-start');
   });
 
-  it("should align left if it's an outgoing message", () => {
+  it("should align right if it's an outgoing message", () => {
     const message: Message = {
       content: 'dummy content',
       direction: 'outgoing',
@@ -26,6 +26,6 @@ describe('Balloon component style tests', () => {
     render(<Balloon message={message} />);
 
     const element = screen.getByText(/dummy content/i).parentElement;
-    expect(element).toHaveClass('self-start');
+    expect(element).toHaveClass('self-end');
   });
 });
