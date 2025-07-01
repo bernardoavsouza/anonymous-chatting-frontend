@@ -16,7 +16,7 @@ export const UserMessageForm: React.FC = () => {
     e.preventDefault();
     const newMessage: Message = {
       content: inputValue,
-      direction: 'incoming',
+      direction: 'outgoing',
       timestamp: new Date(),
     };
     setMessages([...messages, newMessage]);
