@@ -24,12 +24,13 @@ export const UserMessageForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex gap-x-2">
       <Input
         dataTestId="message-input"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Message"
+        className="flex-1"
       />
       <Button
         type="submit"

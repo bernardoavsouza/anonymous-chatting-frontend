@@ -6,7 +6,12 @@ type InputProps = {
   dataTestId?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: React.FC<InputProps> = ({ ref, dataTestId, ...props }) => {
+export const Input: React.FC<InputProps> = ({
+  ref,
+  dataTestId,
+  className,
+  ...props
+}) => {
   return (
     <input
       ref={ref}
@@ -16,6 +21,7 @@ export const Input: React.FC<InputProps> = ({ ref, dataTestId, ...props }) => {
         'rounded-2xl px-4 py-1',
         'bg-secondary outline-0',
         'placeholder:text-secondary-foreground-muted placeholder:text-xs',
+        className,
       )}
     />
   );
