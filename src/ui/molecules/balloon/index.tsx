@@ -1,5 +1,6 @@
 import type { Message } from '@/features/chat/types/message';
 import { Text } from '@/ui/atoms/text';
+import clsx from 'clsx';
 
 type BalloonProps = {
   message: Message;
@@ -14,9 +15,24 @@ export const Balloon: React.FC<BalloonProps> = ({
   });
 
   return (
-    <div className={direction === 'incoming' ? 'self-end' : 'self-start'}>
-      <Text>{content}</Text>
-      <Text>{time}</Text>
+    <div
+      className={clsx(
+        'relative',
+        'flex w-fit max-w-3/4 gap-x-3 rounded-lg px-4 py-2',
+        'bg-primary',
+        direction === 'incoming' &&
+          'bg-accent text-accent-foreground self-start',
+        direction === 'outgoing' &&
+          'bg-secondary text-secondary-foreground self-end',
+      )}>
+      <Text className="flex-1">{content}</Text>
+      <Text
+        className={clsx(
+          'self-end text-xs',
+          direction === 'outgoing' && 'text-secondary-foreground-muted',
+        )}>
+        {time}
+      </Text>
     </div>
   );
 };
