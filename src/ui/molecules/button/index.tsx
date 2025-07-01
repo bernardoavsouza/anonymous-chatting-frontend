@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...rest}
       className={clsx(
         'flex items-center p-2',
-        'bg-accent',
+        'bg-accent shadow-lg',
         fullRounded && 'rounded-full',
       )}>
       {LeftIcon && <LeftIcon role="img" className="text-secondary" size={14} />}

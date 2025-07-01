@@ -19,7 +19,7 @@ export const Balloon: React.FC<BalloonProps> = ({
       className={clsx(
         'relative',
         'flex w-fit max-w-3/4 gap-x-3 rounded-lg px-4 py-2',
-        'bg-primary',
+        'bg-primary shadow-lg',
         direction === 'incoming' &&
           'bg-accent text-accent-foreground self-start',
         direction === 'outgoing' &&

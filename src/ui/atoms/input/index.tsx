@@ -19,7 +19,7 @@ export const Input: React.FC<InputProps> = ({
       data-testid={dataTestId}
       className={clsx(
         'rounded-2xl px-4 py-1',
-        'bg-secondary outline-0',
+        'bg-secondary shadow-lg outline-0',
         'placeholder:text-secondary-foreground-muted placeholder:text-xs',
         className,
       )}
