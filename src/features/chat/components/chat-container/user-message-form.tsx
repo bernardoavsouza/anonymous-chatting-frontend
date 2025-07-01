@@ -6,6 +6,7 @@ import type { FormEvent } from 'react';
 import { useState } from 'react';
 import type { Message } from '../../types/message';
 import { useConversation } from '../../hooks/use-conversation';
+import { SendHorizonal } from 'lucide-react';
 
 export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -28,9 +29,14 @@ export const UserMessageForm: React.FC = () => {
         dataTestId="message-input"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Mensagem"
+        placeholder="Message"
       />
-      <Button type="submit" dataTestId="send-message-button" />
+      <Button
+        type="submit"
+        leftIcon={SendHorizonal}
+        dataTestId="send-message-button"
+        fullRounded
+      />
     </form>
   );
 };
