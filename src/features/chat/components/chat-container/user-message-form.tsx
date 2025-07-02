@@ -37,6 +37,7 @@ export const UserMessageForm: React.FC = () => {
         leftIcon={SendHorizonal}
         dataTestId="send-message-button"
         fullRounded
+        className="size-[37px]"
       />
     </form>
   );

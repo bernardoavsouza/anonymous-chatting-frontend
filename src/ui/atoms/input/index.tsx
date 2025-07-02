@@ -18,9 +18,9 @@ export const Input: React.FC<InputProps> = ({
       {...props}
       data-testid={dataTestId}
       className={clsx(
-        'rounded-2xl px-4 py-1',
+        'rounded-2xl px-4 py-2',
         'bg-secondary shadow-lg outline-0',
-        'placeholder:text-secondary-foreground-muted placeholder:text-xs',
+        'placeholder:text-secondary-foreground-muted',
         className,
       )}
     />

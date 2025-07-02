@@ -18,6 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   dataTestId,
   fullRounded = false,
   ref,
+  className,
   ...rest
 }) => {
   return (
@@ -26,14 +27,15 @@ export const Button: React.FC<ButtonProps> = ({
       data-testid={dataTestId}
       {...rest}
       className={clsx(
-        'flex items-center p-2',
-        'bg-accent shadow-lg',
+        'flex items-center justify-evenly p-2',
+        'bg-accent cursor-pointer shadow-lg',
         fullRounded && 'rounded-full',
+        className,
       )}>
-      {LeftIcon && <LeftIcon role="img" className="text-secondary" size={14} />}
+      {LeftIcon && <LeftIcon role="img" className="text-secondary" size={18} />}
       {children && <Text>{children}</Text>}
       {RightIcon && (
-        <RightIcon role="img" className="text-secondary" size={14} />
+        <RightIcon role="img" className="text-secondary" size={18} />
       )}
     </button>
   );
