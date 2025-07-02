@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useState } from 'react';
-import type { Message } from '../types/message';
+import type { Message } from '../../types/message';
 
 type ConversationContextType = {
   messages: Message[];
