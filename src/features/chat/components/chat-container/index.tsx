@@ -4,7 +4,7 @@ import { ConversationProvider } from '../../hooks/conversation.context';
 
 export const ChatContainer: React.FC = () => {
   return (
-    <div className="flex h-full flex-col gap-y-2 p-2">
+    <div className="flex h-full flex-col gap-y-4 py-3 [&>*]:px-3">
       <ConversationProvider>
         <MessageListing />
         <UserMessageForm />
