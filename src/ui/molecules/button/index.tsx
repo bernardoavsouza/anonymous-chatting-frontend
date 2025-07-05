@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { Text } from '../../atoms/text';
 import type { LucideIcon } from 'lucide-react';
+import { Text } from '../../atoms/text';
 
 type ButtonProps = {
   children?: React.ReactNode;
