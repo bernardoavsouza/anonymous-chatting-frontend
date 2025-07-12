@@ -5,6 +5,11 @@ import { SocketClient } from '..';
 jest.mock('socket.io-client', () => mockedSocket);
 
 describe('Socket structure tests', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (SocketClient as any).instance = null;
+  });
+
   it('should be a singleton', () => {
     const socket1 = SocketClient.getInstance();
     const socket2 = SocketClient.getInstance();

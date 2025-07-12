@@ -1,8 +1,8 @@
 import { connect, type Socket } from 'socket.io-client';
 
 export class SocketClient {
-  private static instance: SocketClient | null = null;
-  private socket: Socket | null = null;
+  private static instance?: SocketClient;
+  private socket?: Socket;
 
   private constructor() {
     this.connect();
