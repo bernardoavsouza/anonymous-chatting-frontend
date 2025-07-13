@@ -20,6 +20,6 @@ export class SocketClient {
   }
 
   private connect() {
-    this.socket = connect('http://localhost:3000');
+    this.socket = connect(process.env.NEXT_PUBLIC_BACKEND_URL);
   }
 }
