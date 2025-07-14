@@ -6,7 +6,7 @@ type SocketMock = {
   connected: boolean;
 };
 
-class SocketIOClientMock implements SocketMock {
+export class SocketIOClientMock implements SocketMock {
   on = jest.fn();
   emit = jest.fn();
   connect = jest.fn(() => {
@@ -16,6 +16,14 @@ class SocketIOClientMock implements SocketMock {
     this.connected = false;
   });
   connected = false;
+
+  simulateIncomingEvent(event: string, data: unknown) {
+    this.on.mock.calls.forEach((call) => {
+      if (call[0] === event) {
+        call[1](data);
+      }
+    });
+  }
 }
 
 export const mockedSocket = {

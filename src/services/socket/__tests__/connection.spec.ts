@@ -4,7 +4,7 @@ import { SocketClient } from '..';
 
 jest.mock('socket.io-client', () => mockedSocket);
 
-describe('Socket structure tests', () => {
+describe('Socket connection tests', () => {
   beforeEach(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (SocketClient as any).instance = null;
