@@ -16,12 +16,12 @@ describe('Socket listeners tests', () => {
     const firstCallback = jest.fn();
     const secondCallback = jest.fn();
 
-    client.listener.onEvent(SocketEvent.Message, firstCallback);
-    client.listener.onEvent(SocketEvent.Message, secondCallback);
+    client.listener.onEvent(SocketEvent.MESSAGE, firstCallback);
+    client.listener.onEvent(SocketEvent.MESSAGE, secondCallback);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
-      SocketEvent.Message,
+      SocketEvent.MESSAGE,
       'dummy message',
     );
 

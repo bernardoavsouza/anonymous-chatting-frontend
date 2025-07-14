@@ -1,12 +1,19 @@
 import type { Socket } from 'socket.io-client';
-import type { EventPayload } from './types';
-import { SocketEvent, type EventCallback } from './types';
+import type { CallbacksReference, EventCallback, EventPayload } from './types';
+import { SocketEvent } from './types';
 
 export class SocketListeners {
   private socket: Socket;
-  public eventCallbacks: Record<SocketEvent, EventCallback[]> = {
-    [SocketEvent.Message]: [],
-  };
+  private eventCallbacks: CallbacksReference =
+    SocketListeners.buildCallbacksReference();
+
+  static buildCallbacksReference(): CallbacksReference {
+    return Object.fromEntries(
+      Object.values(SocketEvent).map<[SocketEvent, EventCallback[]]>(
+        (event) => [event, []],
+      ),
+    ) as CallbacksReference;
+  }
 
   constructor(socket: Socket) {
     this.socket = socket;
