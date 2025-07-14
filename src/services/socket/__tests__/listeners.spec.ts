@@ -11,21 +11,28 @@ describe('Socket listeners tests', () => {
     (SocketClient as any).instance = null;
   });
 
-  it('should trigger message callbacks on message event', () => {
+  it('should trigger event callbacks on incomming event', () => {
     const client = SocketClient.getInstance();
     const firstCallback = jest.fn();
     const secondCallback = jest.fn();
 
     client.listener.onEvent(SocketEvent.MESSAGE, firstCallback);
-    client.listener.onEvent(SocketEvent.MESSAGE, secondCallback);
+    client.listener.onEvent(SocketEvent.JOIN, secondCallback);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
       SocketEvent.MESSAGE,
-      'dummy message',
+      'message payload',
+    );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
+      SocketEvent.JOIN,
+      'join payload',
     );
 
-    expect(firstCallback).toHaveBeenCalled();
-    expect(secondCallback).toHaveBeenCalled();
+    expect(firstCallback).toHaveBeenCalledTimes(1);
+    expect(firstCallback).toHaveBeenCalledWith('message payload');
+    expect(secondCallback).toHaveBeenCalledTimes(1);
+    expect(secondCallback).toHaveBeenCalledWith('join payload');
   });
 });
