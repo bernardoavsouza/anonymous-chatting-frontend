@@ -20,4 +20,10 @@ describe('Socket connection tests', () => {
     const client = SocketClient.getInstance();
     expect(client.isConnected()).toBeTruthy();
   });
+
+  it('should disconnect client when disconnect method is called', () => {
+    const client = SocketClient.getInstance();
+    client.disconnect();
+    expect(client.isConnected()).toBeFalsy();
+  });
 });

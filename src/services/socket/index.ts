@@ -30,4 +30,8 @@ export class SocketClient {
   private connect() {
     this.socket = connect(process.env.NEXT_PUBLIC_BACKEND_URL);
   }
+
+  public disconnect() {
+    this.socket?.disconnect();
+  }
 }
