@@ -30,5 +30,11 @@ export class SocketListener {
 
   public onEvent(event: SocketEvent, callback: EventCallback) {
     this.eventCallbacks[event].push(callback);
+
+    return () => {
+      this.eventCallbacks[event] = this.eventCallbacks[event].filter(
+        (cb) => cb !== callback,
+      );
+    };
   }
 }
