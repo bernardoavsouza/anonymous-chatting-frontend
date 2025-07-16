@@ -17,4 +17,14 @@ describe('ChatContainer component events tests', () => {
       expect(inputElement).toHaveValue('');
     });
   });
+
+  it('should not send message if input value is empty', () => {
+    const button = screen.getByTestId('send-message-button');
+
+    fireEvent.click(button);
+
+    const ballon = screen.queryByTestId('message-balloon');
+
+    expect(ballon).not.toBeInTheDocument();
+  });
 });

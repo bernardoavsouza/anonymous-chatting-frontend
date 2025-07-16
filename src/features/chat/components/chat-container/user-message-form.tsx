@@ -16,6 +16,9 @@ export const UserMessageForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!inputValue) return;
+
     const newMessage: Message = {
       content: inputValue,
       direction: 'outgoing',

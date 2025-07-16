@@ -1,7 +1,7 @@
 import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '@/services/socket';
 import { SocketEvent } from '@/services/socket/types';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import type { Socket } from 'socket.io-client';
 import { ChatContainer } from '..';
 
@@ -28,7 +28,12 @@ describe('ChatContainer component socket tests', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const socket = (client as any).socket as Socket;
 
-    expect(socket.emit).toHaveBeenCalledWith(SocketEvent.MESSAGE, dummyMessage);
+    waitFor(() => {
+      expect(socket.emit).toHaveBeenCalledWith(
+        SocketEvent.MESSAGE,
+        dummyMessage,
+      );
+    });
   });
   // it('should display message when a message event is received');
 });

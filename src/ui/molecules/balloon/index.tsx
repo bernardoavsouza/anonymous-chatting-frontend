@@ -24,7 +24,8 @@ export const Balloon: React.FC<BalloonProps> = ({
           'bg-accent text-accent-foreground self-start',
         direction === 'outgoing' &&
           'bg-secondary text-secondary-foreground self-end',
-      )}>
+      )}
+      data-testid="message-balloon">
       <Text className="flex-1">{content}</Text>
       <Text
         className={clsx(
