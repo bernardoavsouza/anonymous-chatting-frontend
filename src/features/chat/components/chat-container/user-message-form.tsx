@@ -1,5 +1,7 @@
 'use client';
 
+import { SocketClient } from '@/services/socket';
+import { SocketEvent } from '@/services/socket/types';
 import { Input } from '@/ui/atoms/input';
 import { Button } from '@/ui/molecules/button';
 import { SendHorizonal } from 'lucide-react';
@@ -19,6 +21,10 @@ export const UserMessageForm: React.FC = () => {
       direction: 'outgoing',
       timestamp: new Date(),
     };
+    SocketClient.getInstance().emitter.emitEvent(
+      SocketEvent.MESSAGE,
+      newMessage,
+    );
     setMessages([...messages, newMessage]);
     setInputValue('');
   };
