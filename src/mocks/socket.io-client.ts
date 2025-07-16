@@ -19,7 +19,7 @@ export class SocketIOClientMock implements SocketMock {
   });
   connected = false;
 
-  simulateIncomingEvent(event: string, data: unknown) {
+  simulateIncomingEvent(event: string, data: unknown): void {
     this.on.mock.calls.forEach((call) => {
       if (call[0] === event) {
         call[1](data);

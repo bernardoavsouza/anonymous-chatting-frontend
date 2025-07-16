@@ -1,6 +1,6 @@
+import type { Message } from '@/features/chat/types/message';
 import { render, screen } from '@testing-library/react';
 import { Balloon } from '..';
-import type { Message } from '@/features/chat/types/message';
 
 describe('Balloon component style tests', () => {
   it("should align left if it's an incoming message", () => {

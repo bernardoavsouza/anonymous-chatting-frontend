@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Input } from '..';
-import { fireEvent, screen } from '@testing-library/react';
 
 describe('Input component events tests', () => {
   let dummyFn: jest.Mock;

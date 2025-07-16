@@ -6,7 +6,7 @@ export class SocketEmitter {
   constructor(socket: Socket) {
     this.socket = socket;
   }
-  public emitEvent(event: string, payload: unknown) {
+  public emitEvent(event: string, payload: unknown): void {
     this.socket.emit(event, payload);
   }
 }

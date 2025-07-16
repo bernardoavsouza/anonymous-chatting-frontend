@@ -14,7 +14,7 @@ export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
   const { messages, setMessages } = useConversation();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (!inputValue) return;
 

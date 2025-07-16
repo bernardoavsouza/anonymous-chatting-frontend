@@ -3,7 +3,7 @@
 import { createContext, useState } from 'react';
 import type { Message } from '../../types/message';
 
-type ConversationContextType = {
+export type ConversationContextType = {
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 };

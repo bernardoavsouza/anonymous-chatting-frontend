@@ -1,11 +1,11 @@
-import { dirname } from 'path';
-import prettier from 'eslint-plugin-prettier';
-import { fileURLToPath } from 'url';
-import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
-import { defineConfig } from 'eslint/config';
+import js from '@eslint/js';
 import jest from 'eslint-plugin-jest';
+import prettier from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
+import { defineConfig } from 'eslint/config';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -54,6 +54,7 @@ const eslintConfig = defineConfig([
         { ignoreFilesWithoutCode: true, extensions: ['.tsx'] },
       ],
       'jest/no-disabled-tests': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {

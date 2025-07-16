@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { Button } from '..';
 import { Check } from 'lucide-react';
+import { Button } from '..';
 
 describe('Button component content tests', () => {
   it('should display the content when provided', () => {

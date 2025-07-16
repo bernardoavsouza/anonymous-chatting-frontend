@@ -20,7 +20,7 @@ export class SocketListener {
     this.listenToEvents();
   }
 
-  private listenToEvents() {
+  private listenToEvents(): void {
     Object.values(SocketEvent).forEach((event) => {
       this.socket?.on(event, (payload: EventPayload) => {
         this.eventCallbacks[event].forEach((callback) => callback(payload));
@@ -28,7 +28,7 @@ export class SocketListener {
     });
   }
 
-  public onEvent(event: SocketEvent, callback: EventCallback) {
+  public onEvent(event: SocketEvent, callback: EventCallback): () => void {
     this.eventCallbacks[event].push(callback);
 
     return () => {

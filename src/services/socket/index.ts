@@ -19,22 +19,22 @@ export class SocketClient {
     this.emitter = new SocketEmitter(this.socket);
   }
 
-  static getInstance() {
+  static getInstance(): SocketClient {
     if (!SocketClient.instance) {
       SocketClient.instance = new SocketClient();
     }
     return SocketClient.instance;
   }
 
-  public isConnected() {
+  public isConnected(): boolean {
     return !!this.socket?.connected;
   }
 
-  private connect() {
+  private connect(): void {
     this.socket = connect(process.env.NEXT_PUBLIC_BACKEND_URL);
   }
 
-  public disconnect() {
+  public disconnect(): void {
     this.socket?.disconnect();
   }
 }

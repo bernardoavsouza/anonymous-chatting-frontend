@@ -1,6 +1,6 @@
+import type { Message } from '@/features/chat/types/message';
 import { renderHook, waitFor } from '@testing-library/react';
 import { useConversation } from '..';
-import type { Message } from '@/features/chat/types/message';
 
 describe('useConversation hook content tests', () => {
   it('should have empty messages by default', () => {
