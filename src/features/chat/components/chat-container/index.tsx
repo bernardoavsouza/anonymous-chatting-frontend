@@ -1,6 +1,6 @@
-import { UserMessageForm } from './user-message-form';
-import { MessageListing } from './message-listing';
 import { ConversationProvider } from '../../hooks/use-conversation/conversation.context';
+import { MessageListing } from './message-listing';
+import { UserMessageForm } from './user-message-form';
 
 export const ChatContainer: React.FC = () => {
   return (

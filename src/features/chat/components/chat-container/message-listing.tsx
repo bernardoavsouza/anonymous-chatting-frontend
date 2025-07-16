@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 
-import { useConversation } from '../../hooks/use-conversation';
 import { Balloon } from '@/ui/molecules/balloon';
+import { useConversation } from '../../hooks/use-conversation';
 
 export const MessageListing: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
