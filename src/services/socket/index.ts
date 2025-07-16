@@ -1,10 +1,12 @@
 import { connect, type Socket } from 'socket.io-client';
-import { SocketListeners } from './listeners';
+import { SocketEmitter } from './emitter';
+import { SocketListener } from './listener';
 
 export class SocketClient {
   private static instance?: SocketClient;
   private socket?: Socket;
-  public listener: SocketListeners;
+  public listener: SocketListener;
+  public emitter: SocketEmitter;
 
   private constructor() {
     this.connect();
@@ -13,7 +15,8 @@ export class SocketClient {
       throw new Error('Socket is not connected');
     }
 
-    this.listener = new SocketListeners(this.socket);
+    this.listener = new SocketListener(this.socket);
+    this.emitter = new SocketEmitter(this.socket);
   }
 
   static getInstance() {

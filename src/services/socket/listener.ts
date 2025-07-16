@@ -2,10 +2,10 @@ import type { Socket } from 'socket.io-client';
 import type { CallbacksReference, EventCallback, EventPayload } from './types';
 import { SocketEvent } from './types';
 
-export class SocketListeners {
+export class SocketListener {
   private socket: Socket;
   private eventCallbacks: CallbacksReference =
-    SocketListeners.buildCallbacksReference();
+    SocketListener.buildCallbacksReference();
 
   static buildCallbacksReference(): CallbacksReference {
     return Object.fromEntries(
