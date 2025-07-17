@@ -21,7 +21,7 @@ export const UserMessageForm: React.FC = () => {
     const newMessage: Message = {
       content: inputValue,
       direction: 'outgoing',
-      timestamp: new Date(),
+      timestamp: new Date().toISOString(),
     };
     SocketClient.getInstance().emitter.emitEvent(
       SocketEvent.MESSAGE,

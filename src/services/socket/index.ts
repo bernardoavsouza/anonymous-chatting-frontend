@@ -1,3 +1,5 @@
+'use client';
+
 import { connect, type Socket } from 'socket.io-client';
 import { SocketEmitter } from './emitter';
 import { SocketListener } from './listener';
@@ -31,7 +33,13 @@ export class SocketClient {
   }
 
   private connect(): void {
-    this.socket = connect(process.env.NEXT_PUBLIC_BACKEND_URL);
+    this.socket = connect(process.env.NEXT_PUBLIC_BACKEND_URL, {
+      transports: ['websocket', 'polling'],
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: 10,
+      reconnectionDelayMax: 5000,
+    });
   }
 
   public disconnect(): void {

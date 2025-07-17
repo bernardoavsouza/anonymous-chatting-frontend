@@ -1,4 +1,4 @@
-import { dummyMessage } from './socket.io-client';
+import { dummyTimestamp } from './socket.io-client';
 
 export const mockDate = (): void => {
   const OriginalDate = global.Date;
@@ -7,6 +7,6 @@ export const mockDate = (): void => {
     if (args.length > 0) {
       return new OriginalDate(...args);
     }
-    return new OriginalDate(dummyMessage.timestamp);
+    return new OriginalDate(dummyTimestamp);
   });
 };

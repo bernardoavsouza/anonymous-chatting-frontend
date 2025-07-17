@@ -19,21 +19,24 @@ describe('Socket listeners tests', () => {
     client.listener.onEvent(SocketEvent.MESSAGE, firstCallback);
     client.listener.onEvent(SocketEvent.JOIN, secondCallback);
 
+    const messagePayload = { ...dummyMessage, content: 'message payload' };
+    const joinPayload = { ...dummyMessage, content: 'join payload' };
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
       SocketEvent.MESSAGE,
-      'message payload',
+      messagePayload,
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
       SocketEvent.JOIN,
-      'join payload',
+      joinPayload,
     );
 
     expect(firstCallback).toHaveBeenCalledTimes(1);
-    expect(firstCallback).toHaveBeenCalledWith('message payload');
+    expect(firstCallback).toHaveBeenCalledWith(messagePayload);
     expect(secondCallback).toHaveBeenCalledTimes(1);
-    expect(secondCallback).toHaveBeenCalledWith('join payload');
+    expect(secondCallback).toHaveBeenCalledWith(joinPayload);
   });
 
   it('should be able to remove the right callback with return function', () => {
@@ -56,11 +59,11 @@ describe('Socket listeners tests', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
       SocketEvent.MESSAGE,
-      dummyMessage.content,
+      dummyMessage,
     );
 
     expect(firstMessageCallback).toHaveBeenCalled();
-    expect(firstMessageCallback).toHaveBeenCalledWith(dummyMessage.content);
+    expect(firstMessageCallback).toHaveBeenCalledWith(dummyMessage);
     expect(secondMessageCallback).not.toHaveBeenCalled();
     expect(joinCallback).not.toHaveBeenCalled();
   });

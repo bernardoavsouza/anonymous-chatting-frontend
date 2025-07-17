@@ -9,9 +9,9 @@ export class SocketListener {
 
   static buildCallbacksReference(): CallbacksReference {
     return Object.fromEntries(
-      Object.values(SocketEvent).map<[SocketEvent, EventCallback[]]>(
-        (event) => [event, []],
-      ),
+      Object.values(SocketEvent).map<
+        [SocketEvent, EventCallback<EventPayload>[]]
+      >((event) => [event, []]),
     ) as CallbacksReference;
   }
 
@@ -28,7 +28,11 @@ export class SocketListener {
     });
   }
 
-  public onEvent(event: SocketEvent, callback: EventCallback): () => void {
+  // TODO: Make dynamic typing
+  public onEvent(
+    event: SocketEvent,
+    callback: EventCallback<EventPayload>,
+  ): () => void {
     this.eventCallbacks[event].push(callback);
 
     return () => {

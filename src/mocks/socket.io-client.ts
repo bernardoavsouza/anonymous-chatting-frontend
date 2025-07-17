@@ -36,8 +36,10 @@ export const mockedSocket = {
   }),
 };
 
+export const dummyTimestamp = '2025-02-02T06:04:05.000Z';
+
 export const dummyMessage: Message = {
   content: 'dummy message',
   direction: 'outgoing',
-  timestamp: new Date(2025, 1, 2, 3, 4, 5),
+  timestamp: dummyTimestamp,
 };

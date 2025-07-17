@@ -9,7 +9,7 @@ type BalloonProps = {
 export const Balloon: React.FC<BalloonProps> = ({
   message: { content, direction, timestamp },
 }) => {
-  const time = timestamp.toLocaleTimeString('pt-BR', {
+  const time = new Date(timestamp).toLocaleTimeString('pt-BR', {
     hour: '2-digit',
     minute: '2-digit',
   });
