@@ -6,13 +6,15 @@ import { SocketEvent } from '../types';
 jest.mock('socket.io-client', () => mockedSocket);
 
 describe('Socket listeners tests', () => {
+  let client: SocketClient;
+
   beforeEach(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (SocketClient as any).instance = null;
+    client = SocketClient.getInstance();
   });
 
   it('should trigger event callbacks on incomming event', () => {
-    const client = SocketClient.getInstance();
     const firstCallback = jest.fn();
     const secondCallback = jest.fn();
 
@@ -40,7 +42,6 @@ describe('Socket listeners tests', () => {
   });
 
   it('should be able to remove the right callback with return function', () => {
-    const client = SocketClient.getInstance();
     const firstMessageCallback = jest.fn();
     const secondMessageCallback = jest.fn();
     const joinCallback = jest.fn();
