@@ -12,7 +12,7 @@ import type { Message } from '../../types/message';
 
 export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
-  const { messages, setMessages } = useConversation();
+  const { setMessages } = useConversation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -27,7 +27,7 @@ export const UserMessageForm: React.FC = () => {
       SocketEvent.MESSAGE,
       newMessage,
     );
-    setMessages([...messages, newMessage]);
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
     setInputValue('');
   };
 

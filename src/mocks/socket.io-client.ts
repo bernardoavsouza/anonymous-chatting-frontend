@@ -1,4 +1,5 @@
 import type { Message } from '@/features/chat/types/message';
+import type { EventPayload, SocketEvent } from '@/services/socket/types';
 
 type SocketMock = {
   on: jest.Mock;
@@ -19,7 +20,8 @@ export class SocketIOClientMock implements SocketMock {
   });
   connected = false;
 
-  simulateIncomingEvent(event: string, data: unknown): void {
+  // TODO: make this method typesafe
+  simulateIncomingEvent(event: SocketEvent, data: EventPayload): void {
     this.on.mock.calls.forEach((call) => {
       if (call[0] === event) {
         call[1](data);

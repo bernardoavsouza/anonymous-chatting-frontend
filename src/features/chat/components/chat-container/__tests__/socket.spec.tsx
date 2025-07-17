@@ -7,7 +7,13 @@ import {
 import { SocketClient } from '@/services/socket';
 import type { EventPayload, InputPort } from '@/services/socket/types';
 import { SocketEvent } from '@/services/socket/types';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import type { Socket } from 'socket.io-client';
 import { ChatContainer } from '..';
 
@@ -68,6 +74,8 @@ describe('ChatContainer component socket tests', () => {
 
     const message = screen.queryByTestId('message-balloon');
 
-    expect(message).toHaveTextContent(dummyMessage.content);
+    waitFor(() => {
+      expect(message).toHaveTextContent(dummyMessage.content);
+    });
   });
 });
