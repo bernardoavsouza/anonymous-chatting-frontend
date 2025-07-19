@@ -8,6 +8,7 @@ import { useConversation } from '../../hooks/use-conversation';
 export const MessageListing: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { messages } = useConversation();
+  useConversation();
 
   useEffect(() => {
     if (!ref.current?.scrollTo) return;

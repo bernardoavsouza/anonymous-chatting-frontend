@@ -1,24 +1,35 @@
-import { dummyMessage } from '@/mocks/socket.io-client';
-import { renderHook, waitFor } from '@testing-library/react';
+import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
+import { SocketClient } from '@/services/socket';
+import { act, renderHook } from '@testing-library/react';
 import { useConversation } from '..';
+import type { HookResult } from '../../types';
 import type { ConversationContextType } from '../conversation.context';
+import { ConversationProvider } from '../conversation.context';
+
+jest.mock('socket.io-client', () => mockedSocket);
 
 describe('useConversation hook content tests', () => {
-  let context: ConversationContextType;
+  let result: HookResult<ConversationContextType>;
 
   beforeEach(() => {
-    const { result } = renderHook(() => useConversation());
-    context = result.current;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (SocketClient as any).instance = null;
+    ({ result } = renderHook(() => useConversation(), {
+      wrapper: ({ children }) => (
+        <ConversationProvider>{children}</ConversationProvider>
+      ),
+    }));
   });
 
   it('should have empty messages by default', () => {
-    expect(context.messages).toEqual([]);
+    expect(result.current.messages).toEqual([]);
   });
 
-  it('should update messages', () => {
-    context.setMessages([dummyMessage]);
-    waitFor(() => {
-      expect(context.messages).toEqual([dummyMessage]);
+  it('should update messages', async () => {
+    act(() => {
+      result.current.setMessages([dummyMessage]);
     });
+
+    expect(result.current.messages).toEqual([dummyMessage]);
   });
 });
