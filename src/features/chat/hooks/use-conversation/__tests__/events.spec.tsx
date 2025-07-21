@@ -1,6 +1,7 @@
 import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '@/services/socket';
 import { SocketEvent } from '@/services/socket/types';
+import { resetSocket } from '@/services/socket/utils';
 import { renderHook } from '@testing-library/react';
 import { act } from 'react';
 import { useConversation } from '..';
@@ -16,8 +17,7 @@ describe('useConversation hook events tests', () => {
   let result: HookResult<ConversationContextType>;
 
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (SocketClient as any).instance = null;
+    resetSocket();
 
     ({ result } = renderHook(() => useConversation(), {
       wrapper: ({ children }) => (

@@ -8,6 +8,7 @@ import type { Socket } from 'socket.io-client';
 import { SocketClient } from '..';
 import type { EventPayload, InputPort } from '../types';
 import { SocketEvent } from '../types';
+import { resetSocket } from '../utils';
 
 jest.mock('socket.io-client', () => mockedSocket);
 
@@ -17,8 +18,7 @@ describe('Socket emitters tests', () => {
   });
 
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (SocketClient as any).instance = null;
+    resetSocket();
   });
 
   it('should emit event when emitEvent method is called', () => {

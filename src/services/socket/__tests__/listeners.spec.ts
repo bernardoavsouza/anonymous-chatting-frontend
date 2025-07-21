@@ -2,6 +2,7 @@ import type { SocketIOClientMock } from '@/mocks/socket.io-client';
 import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
 import { SocketEvent } from '../types';
+import { resetSocket } from '../utils';
 
 jest.mock('socket.io-client', () => mockedSocket);
 
@@ -9,8 +10,7 @@ describe('Socket listeners tests', () => {
   let client: SocketClient;
 
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (SocketClient as any).instance = null;
+    resetSocket();
     client = SocketClient.getInstance();
   });
 

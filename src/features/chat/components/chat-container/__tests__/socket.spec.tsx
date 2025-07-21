@@ -7,6 +7,7 @@ import {
 import { SocketClient } from '@/services/socket';
 import type { EventPayload, InputPort } from '@/services/socket/types';
 import { SocketEvent } from '@/services/socket/types';
+import { resetSocket } from '@/services/socket/utils';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { Socket } from 'socket.io-client';
 import { ChatContainer } from '..';
@@ -19,8 +20,7 @@ describe('ChatContainer component socket tests', () => {
   });
 
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (SocketClient as any).instance = null;
+    resetSocket();
 
     render(<ChatContainer />);
   });

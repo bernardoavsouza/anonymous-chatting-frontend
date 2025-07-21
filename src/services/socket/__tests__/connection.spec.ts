@@ -1,13 +1,13 @@
 // import { mockedSocket } from '@/__mocks__/socket.io-clientt';
 import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
+import { resetSocket } from '../utils';
 
 jest.mock('socket.io-client', () => mockedSocket);
 
 describe('Socket connection tests', () => {
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (SocketClient as any).instance = null;
+    resetSocket();
   });
 
   it('should be a singleton', () => {
