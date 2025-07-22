@@ -1,5 +1,7 @@
-import type { Message } from '@/features/chat/types/message';
-import type { EventPayload, SocketEvent } from '@/services/socket/types';
+import type {
+  EventPayload,
+  SocketEvent,
+} from '@/services/socket/types/events.types';
 
 type SocketMock = {
   on: jest.Mock;
@@ -36,12 +38,4 @@ export const mockedSocket = {
     socket.connect();
     return socket;
   }),
-};
-
-export const dummyTimestamp = '2025-02-02T06:04:05.000Z';
-
-export const dummyMessage: Message = {
-  content: 'dummy message',
-  direction: 'outgoing',
-  timestamp: dummyTimestamp,
 };

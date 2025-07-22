@@ -1,7 +1,7 @@
 import type { SocketIOClientMock } from '@/mocks/socket.io-client';
 import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
-import { SocketEvent } from '../types';
+import { SocketEvent } from '../types/events.types';
 import { resetSocket } from '../utils';
 
 jest.mock('socket.io-client', () => mockedSocket);

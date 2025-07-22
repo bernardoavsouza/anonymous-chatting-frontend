@@ -1,4 +1,3 @@
-// import { mockedSocket } from '@/__mocks__/socket.io-clientt';
 import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
 import { resetSocket } from '../utils';

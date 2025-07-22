@@ -1,9 +1,9 @@
 'use client';
 
 import { SocketClient } from '@/services/socket';
-import { SocketEvent } from '@/services/socket/types';
+import { SocketEvent } from '@/services/socket/types/events.types';
+import type { Message } from '@/services/socket/types/payloads.types';
 import { createContext, useEffect, useState } from 'react';
-import type { Message } from '../../types/message';
 
 export type ConversationContextType = {
   messages: Message[];
@@ -27,8 +27,12 @@ export const ConversationProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const unsubscribe = client.listener.onEvent(
       SocketEvent.MESSAGE,
+      // TODO: remove that casting after fixing payload types
       (payload) => {
-        const newMessage: Message = { ...payload, direction: 'incoming' };
+        const newMessage: Message = {
+          ...(payload as Message),
+          direction: 'incoming',
+        };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
       },
     );

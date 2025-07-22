@@ -1,12 +1,10 @@
 import { mockDate } from '@/mocks/date';
-import {
-  dummyMessage,
-  dummyTimestamp,
-  mockedSocket,
-} from '@/mocks/socket.io-client';
+import { dummyMessage, dummyTimestamp } from '@/mocks/dummys';
+import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '@/services/socket';
-import type { EventPayload, InputPort } from '@/services/socket/types';
-import { SocketEvent } from '@/services/socket/types';
+import type { InputPort } from '@/services/socket/types/base.types';
+import type { EventPayload } from '@/services/socket/types/events.types';
+import { SocketEvent } from '@/services/socket/types/events.types';
 import { resetSocket } from '@/services/socket/utils';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { Socket } from 'socket.io-client';

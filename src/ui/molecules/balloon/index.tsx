@@ -1,4 +1,4 @@
-import type { Message } from '@/features/chat/types/message';
+import type { Message } from '@/services/socket/types/payloads.types';
 import { Text } from '@/ui/atoms/text';
 import clsx from 'clsx';
 

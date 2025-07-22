@@ -1,13 +1,11 @@
 import { mockDate } from '@/mocks/date';
-import {
-  dummyMessage,
-  dummyTimestamp,
-  mockedSocket,
-} from '@/mocks/socket.io-client';
+import { dummyMessage, dummyTimestamp } from '@/mocks/dummys';
+import { mockedSocket } from '@/mocks/socket.io-client';
 import type { Socket } from 'socket.io-client';
 import { SocketClient } from '..';
-import type { EventPayload, InputPort } from '../types';
-import { SocketEvent } from '../types';
+import type { InputPort } from '../types/base.types';
+import type { EventPayload } from '../types/events.types';
+import { SocketEvent } from '../types/events.types';
 import { resetSocket } from '../utils';
 
 jest.mock('socket.io-client', () => mockedSocket);

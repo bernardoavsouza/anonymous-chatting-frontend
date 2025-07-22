@@ -1,5 +1,6 @@
 import type { Socket } from 'socket.io-client';
-import type { EventPayload, InputPort, SocketEvent } from './types';
+import type { InputPort } from './types/base.types';
+import type { EventPayload, SocketEvent } from './types/events.types';
 
 export class SocketEmitter {
   private socket: Socket;

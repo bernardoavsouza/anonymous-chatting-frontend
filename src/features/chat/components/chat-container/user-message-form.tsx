@@ -1,14 +1,14 @@
 'use client';
 
 import { SocketClient } from '@/services/socket';
-import { SocketEvent } from '@/services/socket/types';
+import { SocketEvent } from '@/services/socket/types/events.types';
+import type { Message } from '@/services/socket/types/payloads.types';
 import { Input } from '@/ui/atoms/input';
 import { Button } from '@/ui/molecules/button';
 import { SendHorizonal } from 'lucide-react';
 import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { useConversation } from '../../hooks/use-conversation';
-import type { Message } from '../../types/message';
 
 export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');

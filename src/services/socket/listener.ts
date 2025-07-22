@@ -1,6 +1,10 @@
 import type { Socket } from 'socket.io-client';
-import type { CallbacksReference, EventCallback, EventPayload } from './types';
-import { SocketEvent } from './types';
+import type {
+  CallbacksReference,
+  EventCallback,
+  EventPayload,
+} from './types/events.types';
+import { SocketEvent } from './types/events.types';
 
 export class SocketListener {
   private socket: Socket;

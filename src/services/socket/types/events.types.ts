@@ -1,6 +1,6 @@
-import type { Message } from '@/features/chat/types/message';
+import type { JoinConversation, Message } from './payloads.types';
 
-export type EventPayload = Message;
+export type EventPayload = Message | JoinConversation;
 export type EventCallback<T extends EventPayload> = (payload: T) => void;
 export type CallbacksReference = Record<
   SocketEvent,
@@ -12,8 +12,3 @@ export enum SocketEvent {
   JOIN = 'conversation:join',
   LEAVE = 'conversation:leave',
 }
-
-export type InputPort<T> = {
-  data: T;
-  timestamp: string;
-};
