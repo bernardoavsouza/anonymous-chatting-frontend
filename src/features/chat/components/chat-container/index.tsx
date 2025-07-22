@@ -1,4 +1,4 @@
-import { ConversationProvider } from '../../../../hooks/use-conversation/conversation.context';
+import { ConversationProvider } from '../../../../hooks/use-conversation/conversation.provider';
 import { MessageListing } from './message-listing';
 import { UserMessageForm } from './user-message-form';
 

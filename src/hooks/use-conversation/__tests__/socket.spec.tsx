@@ -7,10 +7,8 @@ import { renderHook } from '@testing-library/react';
 import { act } from 'react';
 import { useConversation } from '..';
 import type { HookResult } from '../../types';
-import {
-  ConversationProvider,
-  type ConversationContextType,
-} from '../conversation.context';
+import { ConversationProvider } from '../conversation.provider';
+import type { ConversationContextType } from '../types';
 
 jest.mock('socket.io-client', () => mockedSocket);
 

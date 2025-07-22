@@ -1,14 +1,9 @@
 'use client';
 
 import { useContext } from 'react';
-import type { ConversationContextType } from './conversation.context';
 import { ConversationContext } from './conversation.context';
+import type { ConversationContextType } from './types';
 
 export const useConversation = (): ConversationContextType => {
-  const { messages, setMessages } = useContext(ConversationContext);
-
-  return {
-    messages,
-    setMessages,
-  };
+  return useContext(ConversationContext);
 };

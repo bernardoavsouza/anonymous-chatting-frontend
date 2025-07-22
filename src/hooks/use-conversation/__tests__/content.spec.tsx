@@ -1,11 +1,11 @@
-import { dummyMessage } from '@/mocks/dummys';
+import { dummyConversationId, dummyMessage } from '@/mocks/dummys';
 import { mockedSocket } from '@/mocks/socket.io-client';
 import { resetSocket } from '@/services/socket/utils';
 import { act, renderHook } from '@testing-library/react';
 import { useConversation } from '..';
 import type { HookResult } from '../../types';
-import type { ConversationContextType } from '../conversation.context';
-import { ConversationProvider } from '../conversation.context';
+import { ConversationProvider } from '../conversation.provider';
+import type { ConversationContextType } from '../types';
 
 jest.mock('socket.io-client', () => mockedSocket);
 
@@ -32,5 +32,17 @@ describe('useConversation hook content tests', () => {
     });
 
     expect(result.current.messages).toEqual([dummyMessage]);
+  });
+
+  it('should have null conversation id by default', () => {
+    expect(result.current.conversationId).toBeNull();
+  });
+
+  it('should be able to update conversation id', () => {
+    act(() => {
+      result.current.setConversationId(dummyConversationId);
+    });
+
+    expect(result.current.conversationId).toEqual(dummyConversationId);
   });
 });
