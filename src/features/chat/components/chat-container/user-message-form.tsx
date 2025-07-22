@@ -8,7 +8,7 @@ import { Button } from '@/ui/molecules/button';
 import { SendHorizonal } from 'lucide-react';
 import type { FormEvent } from 'react';
 import { useState } from 'react';
-import { useConversation } from '../../hooks/use-conversation';
+import { useConversation } from '../../../../hooks/use-conversation';
 
 export const UserMessageForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
