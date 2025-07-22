@@ -1,4 +1,5 @@
-import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
+import { dummyMessage } from '@/mocks/dummys';
+import { mockedSocket } from '@/mocks/socket.io-client';
 import { resetSocket } from '@/services/socket/utils';
 import { act, renderHook } from '@testing-library/react';
 import { useConversation } from '..';

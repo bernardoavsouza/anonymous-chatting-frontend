@@ -10,7 +10,8 @@
     "test": "jest --bail",
     "test:watch": "jest --watchAll",
     "prepare": "husky",
-    "precommit": "lint-staged && pnpm run test --passWithNoTests"
+    "precommit": "lint-staged && pnpm run test --passWithNoTests",
+    "type-check": "tsc --noEmit"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write",

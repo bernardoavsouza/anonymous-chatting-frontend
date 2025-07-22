@@ -1,5 +1,6 @@
+import { dummyMessage } from '@/mocks/dummys';
 import type { SocketIOClientMock } from '@/mocks/socket.io-client';
-import { dummyMessage, mockedSocket } from '@/mocks/socket.io-client';
+import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
 import { SocketEvent } from '../types/events.types';
 import { resetSocket } from '../utils';

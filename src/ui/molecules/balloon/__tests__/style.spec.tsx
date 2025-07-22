@@ -1,4 +1,5 @@
-import type { Message } from '@/features/chat/types/message';
+import { dummyTimestamp } from '@/mocks/dummys';
+import type { Message } from '@/services/socket/types/payloads.types';
 import { render, screen } from '@testing-library/react';
 import { Balloon } from '..';
 
@@ -7,7 +8,7 @@ describe('Balloon component style tests', () => {
     const message: Message = {
       content: 'dummy content',
       direction: 'incoming',
-      timestamp: new Date(),
+      timestamp: dummyTimestamp,
     };
 
     render(<Balloon message={message} />);
@@ -20,7 +21,7 @@ describe('Balloon component style tests', () => {
     const message: Message = {
       content: 'dummy content',
       direction: 'outgoing',
-      timestamp: new Date(),
+      timestamp: dummyTimestamp,
     };
 
     render(<Balloon message={message} />);
