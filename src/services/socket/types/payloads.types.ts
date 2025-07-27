@@ -7,3 +7,7 @@ export type Message = {
   direction: 'incoming' | 'outgoing';
   timestamp: string;
 };
+
+export type LeaveConversation = {
+  conversationId: string;
+};

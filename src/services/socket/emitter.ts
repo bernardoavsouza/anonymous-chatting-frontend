@@ -1,6 +1,6 @@
 import type { Socket } from 'socket.io-client';
 import type { InputPort } from './types/base.types';
-import type { EventPayload, SocketEvent } from './types/events.types';
+import type { EventPayload } from './types/events.types';
 
 export class SocketEmitter {
   private socket: Socket;
@@ -8,8 +8,11 @@ export class SocketEmitter {
   constructor(socket: Socket) {
     this.socket = socket;
   }
-  public emitEvent(event: SocketEvent, payload: EventPayload): void {
-    const data: InputPort<EventPayload> = {
+  public emitEvent<T extends keyof EventPayload>(
+    event: T,
+    payload: EventPayload[T],
+  ): void {
+    const data: InputPort<EventPayload[T]> = {
       data: payload,
       timestamp: new Date().toISOString(),
     };

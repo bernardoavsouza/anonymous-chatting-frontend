@@ -32,7 +32,7 @@ describe('ChatContainer component socket tests', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const socket = (client as any).socket as Socket;
 
-    const payload: InputPort<EventPayload> = {
+    const payload: InputPort<EventPayload[SocketEvent.MESSAGE]> = {
       data: dummyMessage,
       timestamp: dummyTimestamp,
     };
