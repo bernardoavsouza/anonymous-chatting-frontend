@@ -1,8 +1,5 @@
-import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
 import { resetSocket } from '../utils';
-
-jest.mock('socket.io-client', () => mockedSocket);
 
 describe('Socket connection tests', () => {
   beforeEach(() => {

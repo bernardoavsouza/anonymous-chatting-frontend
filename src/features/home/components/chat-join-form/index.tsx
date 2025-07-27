@@ -9,9 +9,12 @@ export const ChatJoinForm: React.FC = () => {
   const router = useRouter();
 
   const handleNewConversation = (): void => {
+    const conversationId = crypto.randomUUID();
+
     SocketClient.getInstance().emitter.emitEvent(SocketEvent.JOIN, {
-      conversationId: crypto.randomUUID(),
+      conversationId,
     });
+
     router.push('/chat');
   };
 

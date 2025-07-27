@@ -1,16 +1,13 @@
-import { dummyMessage } from '@/mocks/dummys';
-import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '@/services/socket';
 import { SocketEvent } from '@/services/socket/types/events.types';
 import { resetSocket } from '@/services/socket/utils';
 import { renderHook } from '@testing-library/react';
 import { act } from 'react';
+import { dummyMessage } from '~/dummys';
 import { useConversation } from '..';
 import type { HookResult } from '../../types';
 import { ConversationProvider } from '../conversation.provider';
 import type { ConversationContextType } from '../types';
-
-jest.mock('socket.io-client', () => mockedSocket);
 
 describe('useConversation hook events tests', () => {
   let result: HookResult<ConversationContextType>;
@@ -19,9 +16,7 @@ describe('useConversation hook events tests', () => {
     resetSocket();
 
     ({ result } = renderHook(() => useConversation(), {
-      wrapper: ({ children }) => (
-        <ConversationProvider>{children}</ConversationProvider>
-      ),
+      wrapper: ConversationProvider,
     }));
   });
 

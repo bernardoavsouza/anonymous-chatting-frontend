@@ -1,11 +1,7 @@
-import { dummyMessage } from '@/mocks/dummys';
-import type { SocketIOClientMock } from '@/mocks/socket.io-client';
-import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '..';
+import { dummyMessage } from '../../../../__mocks__/dummys';
 import { SocketEvent } from '../types/events.types';
 import { resetSocket } from '../utils';
-
-jest.mock('socket.io-client', () => mockedSocket);
 
 describe('Socket listeners tests', () => {
   let client: SocketClient;
@@ -26,12 +22,12 @@ describe('Socket listeners tests', () => {
     const joinPayload = { ...dummyMessage, content: 'join payload' };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
+    ((client as any).socket as any).simulateIncomingEvent(
       SocketEvent.MESSAGE,
       messagePayload,
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
+    ((client as any).socket as any).simulateIncomingEvent(
       SocketEvent.JOIN,
       joinPayload,
     );
@@ -59,7 +55,7 @@ describe('Socket listeners tests', () => {
     removeSecondMessageCallback();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ((client as any).socket as SocketIOClientMock).simulateIncomingEvent(
+    ((client as any).socket as any).simulateIncomingEvent(
       SocketEvent.MESSAGE,
       dummyMessage,
     );

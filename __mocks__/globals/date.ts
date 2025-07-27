@@ -1,4 +1,4 @@
-import { dummyTimestamp } from './dummys';
+import { dummyTimestamp } from '../dummys';
 
 export const mockDate = (): void => {
   const OriginalDate = global.Date;

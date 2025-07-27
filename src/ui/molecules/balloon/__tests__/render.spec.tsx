@@ -1,5 +1,5 @@
-import { dummyMessage } from '@/mocks/dummys';
 import { render, screen } from '@testing-library/react';
+import { dummyMessage } from '~/dummys';
 import { Balloon } from '..';
 
 describe('Balloon component render tests', () => {

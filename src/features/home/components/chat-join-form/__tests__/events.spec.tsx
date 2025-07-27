@@ -1,10 +1,13 @@
-import { mockedNextNavigation } from '@/mocks/navigation';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { useRouter } from 'next/navigation';
+import { mockCrypto } from '~/globals/crypto';
 import { ChatJoinForm } from '..';
 
-jest.mock('next/navigation', () => mockedNextNavigation);
-
 describe('ChatJoinForm event test', () => {
+  beforeAll(() => {
+    mockCrypto();
+  });
+
   beforeEach(() => {
     render(<ChatJoinForm />);
   });
@@ -16,6 +19,6 @@ describe('ChatJoinForm event test', () => {
 
     fireEvent.click(createNewConversationButton);
 
-    expect(mockedNextNavigation.useRouter().push).toHaveBeenCalledWith('/chat');
+    expect(useRouter().push).toHaveBeenCalledWith('/chat');
   });
 });

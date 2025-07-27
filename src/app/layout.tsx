@@ -1,3 +1,4 @@
+import { ConversationProvider } from '@/hooks/use-conversation/conversation.provider';
 import type { Metadata } from 'next';
 import type { JSX } from 'react';
 import './globals.css';
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <div className="h-screen w-screen overflow-y-auto">{children}</div>
+        <div className="h-screen w-screen overflow-y-auto">
+          <ConversationProvider>{children}</ConversationProvider>
+        </div>
       </body>
     </html>
   );

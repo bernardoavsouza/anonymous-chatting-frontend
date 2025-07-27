@@ -1,6 +1,6 @@
-import { dummyTimestamp } from '@/mocks/dummys';
 import type { Message } from '@/services/socket/types/payloads.types';
 import { render, screen } from '@testing-library/react';
+import { dummyTimestamp } from '~/dummys';
 import { Balloon } from '..';
 
 describe('Balloon component style tests', () => {

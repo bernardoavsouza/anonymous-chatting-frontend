@@ -11,7 +11,7 @@ type SocketMock = {
   connected: boolean;
 };
 
-export class SocketIOClientMock implements SocketMock {
+class SocketIOClientMock implements SocketMock {
   on = jest.fn();
   emit = jest.fn();
   connect = jest.fn(() => {
@@ -32,10 +32,10 @@ export class SocketIOClientMock implements SocketMock {
   }
 }
 
-export const mockedSocket = {
-  connect: jest.fn(() => {
-    const socket = new SocketIOClientMock();
-    socket.connect();
-    return socket;
-  }),
-};
+const mockedIo = jest.fn(() => {
+  const socket = new SocketIOClientMock();
+  socket.connect();
+  return socket;
+});
+export default mockedIo;
+export const { io, connect } = { io: mockedIo, connect: mockedIo };

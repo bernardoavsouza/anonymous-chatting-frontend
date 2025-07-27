@@ -1,9 +1,10 @@
+import { ConversationProvider } from '@/hooks/use-conversation/conversation.provider';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ChatContainer } from '..';
 
 describe('ChatContainer component content tests', () => {
   beforeEach(() => {
-    render(<ChatContainer />);
+    render(<ChatContainer />, { wrapper: ConversationProvider });
   });
 
   it('should add only one message balloon per submit event', () => {

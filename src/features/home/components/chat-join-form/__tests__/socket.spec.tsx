@@ -1,20 +1,18 @@
-import { mockCrypto } from '@/mocks/crypto';
-import { mockDate } from '@/mocks/date';
-import { dummyConversationId, dummyTimestamp } from '@/mocks/dummys';
-import { mockedNextNavigation } from '@/mocks/navigation';
-import { mockedSocket } from '@/mocks/socket.io-client';
 import { SocketClient } from '@/services/socket';
 import { SocketEvent } from '@/services/socket/types/events.types';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { dummyConversationId, dummyTimestamp } from '~/dummys';
+import { mockCrypto } from '~/globals/crypto';
+import { mockDate } from '~/globals/date';
 import { ChatJoinForm } from '..';
 
-jest.mock('socket.io-client', () => mockedSocket);
-jest.mock('next/navigation', () => mockedNextNavigation);
-
 describe('ChatJoinForm socket test', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     mockDate();
     mockCrypto();
+  });
+
+  beforeEach(() => {
     render(<ChatJoinForm />);
   });
 

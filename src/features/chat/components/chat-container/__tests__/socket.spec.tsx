@@ -1,6 +1,4 @@
-import { mockDate } from '@/mocks/date';
-import { dummyMessage, dummyTimestamp } from '@/mocks/dummys';
-import { mockedSocket } from '@/mocks/socket.io-client';
+import { ConversationProvider } from '@/hooks/use-conversation/conversation.provider';
 import { SocketClient } from '@/services/socket';
 import type { InputPort } from '@/services/socket/types/base.types';
 import type { EventPayload } from '@/services/socket/types/events.types';
@@ -8,9 +6,9 @@ import { SocketEvent } from '@/services/socket/types/events.types';
 import { resetSocket } from '@/services/socket/utils';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { Socket } from 'socket.io-client';
+import { dummyMessage, dummyTimestamp } from '~/dummys';
+import { mockDate } from '~/globals/date';
 import { ChatContainer } from '..';
-
-jest.mock('socket.io-client', () => mockedSocket);
 
 describe('ChatContainer component socket tests', () => {
   beforeAll(() => {
@@ -20,7 +18,7 @@ describe('ChatContainer component socket tests', () => {
   beforeEach(() => {
     resetSocket();
 
-    render(<ChatContainer />);
+    render(<ChatContainer />, { wrapper: ConversationProvider });
   });
 
   it('should send message event when send button is clicked', () => {
